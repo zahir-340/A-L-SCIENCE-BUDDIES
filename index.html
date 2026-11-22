@@ -257,39 +257,192 @@
       margin: auto;
     }
 
-    /* FEATURES */
+    /* STUDY MATERIALS */
 
-    .features {
+    .materials-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 17px;
     }
 
-    .feature {
-      background: var(--card);
+    .material-card {
+      background: linear-gradient(145deg, #0d1e3e, #091225);
       border: 1px solid var(--border);
       border-radius: 15px;
       padding: 25px 20px;
+      cursor: pointer;
       transition: 0.3s;
+      text-align: left;
+      color: white;
+      width: 100%;
+      font-family: inherit;
     }
 
-    .feature:hover {
+    .material-card:hover {
       transform: translateY(-5px);
       border-color: var(--cyan);
       box-shadow: 0 8px 25px rgba(0, 145, 255, 0.12);
     }
 
-    .feature .icon {
-      font-size: 32px;
+    .material-icon {
+      font-size: 34px;
       margin-bottom: 12px;
     }
 
-    .feature h3 {
+    .material-card h3 {
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+
+    .material-card p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .material-arrow {
+      color: var(--cyan);
+      float: right;
+      font-size: 20px;
+    }
+
+    .materials-navigation {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .back-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--cyan);
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background: rgba(0, 213, 255, 0.1);
+      border-color: var(--cyan);
+    }
+
+    .materials-breadcrumb {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .materials-breadcrumb span {
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    .pdf-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .pdf-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 18px;
+      border-radius: 13px;
+      transition: 0.3s;
+    }
+
+    .pdf-card:hover {
+      border-color: var(--cyan);
+    }
+
+    .pdf-info {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      min-width: 0;
+    }
+
+    .pdf-icon {
+      width: 45px;
+      height: 45px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: rgba(0, 213, 255, 0.1);
+      font-size: 23px;
+    }
+
+    .pdf-info h3 {
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .pdf-info p {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 4px;
+    }
+
+    .pdf-actions {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+
+    .pdf-btn {
+      display: inline-block;
+      padding: 9px 14px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 800;
+      transition: 0.3s;
+    }
+
+    .view-btn {
+      background: rgba(0, 213, 255, 0.12);
+      color: var(--cyan);
+      border: 1px solid rgba(0, 213, 255, 0.3);
+    }
+
+    .download-btn {
+      background: linear-gradient(120deg, #087cff, #00bde9);
+      color: white;
+    }
+
+    .pdf-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.15);
+    }
+
+    .empty-state {
+      text-align: center;
+      background: var(--card);
+      border: 1px dashed rgba(0, 213, 255, 0.3);
+      border-radius: 15px;
+      padding: 45px 20px;
+    }
+
+    .empty-state .empty-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .empty-state h3 {
       font-size: 16px;
       margin-bottom: 7px;
     }
 
-    .feature p {
+    .empty-state p {
       color: var(--muted);
       font-size: 12px;
     }
@@ -373,7 +526,7 @@
       margin-bottom: 16px;
     }
 
-    /* GALLERY CHANNEL */
+    /* CHANNEL */
 
     .gallery-card {
       background: linear-gradient(130deg, #0b2448, #10152b);
@@ -491,10 +644,6 @@
         display: flex;
       }
 
-      .features {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
       .groups {
         grid-template-columns: 1fr;
       }
@@ -514,12 +663,16 @@
     }
 
     @media (max-width: 420px) {
-      .features {
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .materials-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero h1 {
-        letter-spacing: -1px;
+      .pdf-card {
+        align-items: flex-start;
       }
     }
   </style>
@@ -548,9 +701,10 @@
     </div>
   </header>
 
-  <!-- HERO -->
-
   <main>
+
+    <!-- HERO -->
+
     <section class="hero" id="home">
       <div class="container">
 
@@ -578,6 +732,7 @@
 
     <section id="about">
       <div class="container">
+
         <div class="section-heading">
           <small>WHO WE ARE</small>
           <h2>About Our Community</h2>
@@ -597,6 +752,7 @@
             Together, we learn. Together, we grow.
           </p>
         </div>
+
       </div>
     </section>
 
@@ -608,52 +764,23 @@
         <div class="section-heading">
           <small>LEARN SOMETHING NEW</small>
           <h2>Study Materials</h2>
-          <p>Everything students need for their learning journey.</p>
+          <p>Explore subject-wise study materials and PDF collections.</p>
         </div>
 
-        <div class="features">
-
-          <div class="feature">
-            <div class="icon">📘</div>
-            <h3>Physics</h3>
-            <p>Physics discussions, theories and learning resources.</p>
-          </div>
-
-          <div class="feature">
-            <div class="icon">🧪</div>
-            <h3>Chemistry</h3>
-            <p>Chemistry theories, questions and useful materials.</p>
-          </div>
-
-          <div class="feature">
-            <div class="icon">📐</div>
-            <h3>Combined Maths</h3>
-            <p>Mathematics problems, explanations and discussions.</p>
-          </div>
-
-          <div class="feature">
-            <div class="icon">📄</div>
-            <h3>Past Papers</h3>
-            <p>Past examination papers for student practice.</p>
-          </div>
-
-          <div class="feature">
-            <div class="icon">📝</div>
-            <h3>Model Papers</h3>
-            <p>Practice with model examination papers.</p>
-          </div>
-
-          <div class="feature">
-            <div class="icon">✅</div>
-            <h3>Marking Schemes</h3>
-            <p>Marking schemes and answer references.</p>
-          </div>
-
+        <div class="materials-navigation" id="materialsNavigation">
+          <button class="back-btn" id="materialsBack">← Back</button>
+          <div class="materials-breadcrumb" id="materialsBreadcrumb"></div>
         </div>
 
-        <p style="text-align:center;color:#a8b7d2;font-size:12px;margin-top:22px;">
-          📥 Ask for available study materials through our WhatsApp community.
-        </p>
+        <div class="materials-grid" id="materialsGrid"></div>
+
+        <div class="pdf-list" id="pdfList" style="display:none;"></div>
+
+        <div class="empty-state" id="emptyState" style="display:none;">
+          <div class="empty-icon">📂</div>
+          <h3>No PDFs Available Yet</h3>
+          <p>Study materials for this collection will be added soon.</p>
+        </div>
 
       </div>
     </section>
@@ -720,7 +847,7 @@
       </div>
     </section>
 
-    <!-- GALLERY CHANNEL -->
+    <!-- CHANNEL -->
 
     <section id="gallery">
       <div class="container">
@@ -808,6 +935,9 @@
   </footer>
 
   <script>
+
+    /* MOBILE NAVIGATION */
+
     const menuBtn = document.getElementById("menuBtn");
     const navLinks = document.getElementById("navLinks");
 
@@ -823,6 +953,352 @@
         menuBtn.textContent = "☰";
       });
     });
+
+
+    /* STUDY MATERIALS DATA */
+
+    const materialsData = {
+
+      "combined-maths": {
+        name: "Combined Maths",
+        icon: "📐",
+        description: "Mathematics study materials",
+        collections: {
+
+          "past-papers": {
+            name: "Past Papers",
+            icon: "📄",
+            files: [
+              {
+                name: "Combined Maths 2026 Past Paper",
+                path: "pdfs/combined-maths/past-papers/combined-maths-2026-past-paper.pdf"
+              }
+            ]
+          },
+
+          "fwc": {
+            name: "FWC",
+            icon: "📚",
+            files: []
+          },
+
+          "model-papers": {
+            name: "Model Papers",
+            icon: "📝",
+            files: []
+          },
+
+          "notes": {
+            name: "Notes",
+            icon: "📖",
+            files: []
+          }
+
+        }
+      },
+
+      "biology": {
+        name: "Biology",
+        icon: "🧬",
+        description: "Biology study materials",
+        collections: {
+
+          "past-papers": {
+            name: "Past Papers",
+            icon: "📄",
+            files: []
+          },
+
+          "fwc": {
+            name: "FWC",
+            icon: "📚",
+            files: []
+          },
+
+          "model-papers": {
+            name: "Model Papers",
+            icon: "📝",
+            files: []
+          },
+
+          "notes": {
+            name: "Notes",
+            icon: "📖",
+            files: []
+          }
+
+        }
+      },
+
+      "physics": {
+        name: "Physics",
+        icon: "⚛️",
+        description: "Physics study materials",
+        collections: {
+
+          "past-papers": {
+            name: "Past Papers",
+            icon: "📄",
+            files: []
+          },
+
+          "fwc": {
+            name: "FWC",
+            icon: "📚",
+            files: []
+          },
+
+          "model-papers": {
+            name: "Model Papers",
+            icon: "📝",
+            files: []
+          },
+
+          "notes": {
+            name: "Notes",
+            icon: "📖",
+            files: []
+          }
+
+        }
+      },
+
+      "chemistry": {
+        name: "Chemistry",
+        icon: "🧪",
+        description: "Chemistry study materials",
+        collections: {
+
+          "past-papers": {
+            name: "Past Papers",
+            icon: "📄",
+            files: []
+          },
+
+          "fwc": {
+            name: "FWC",
+            icon: "📚",
+            files: []
+          },
+
+          "model-papers": {
+            name: "Model Papers",
+            icon: "📝",
+            files: []
+          },
+
+          "notes": {
+            name: "Notes",
+            icon: "📖",
+            files: []
+          }
+
+        }
+      }
+
+    };
+
+
+    /* MATERIALS NAVIGATION */
+
+    const materialsGrid = document.getElementById("materialsGrid");
+    const pdfList = document.getElementById("pdfList");
+    const emptyState = document.getElementById("emptyState");
+    const materialsNavigation = document.getElementById("materialsNavigation");
+    const materialsBack = document.getElementById("materialsBack");
+    const materialsBreadcrumb = document.getElementById("materialsBreadcrumb");
+
+    let currentSubject = null;
+    let currentCollection = null;
+
+
+    /* SHOW SUBJECTS */
+
+    function showSubjects() {
+
+      currentSubject = null;
+      currentCollection = null;
+
+      materialsNavigation.style.display = "none";
+      pdfList.style.display = "none";
+      emptyState.style.display = "none";
+      materialsGrid.style.display = "grid";
+
+      materialsGrid.innerHTML = "";
+
+      Object.keys(materialsData).forEach(function(key) {
+
+        const subject = materialsData[key];
+
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "material-card";
+
+        card.innerHTML = `
+          <div class="material-arrow">›</div>
+          <div class="material-icon">${subject.icon}</div>
+          <h3>${subject.name}</h3>
+          <p>${subject.description}</p>
+        `;
+
+        card.addEventListener("click", function() {
+          showCollections(key);
+        });
+
+        materialsGrid.appendChild(card);
+
+      });
+
+    }
+
+
+    /* SHOW COLLECTIONS */
+
+    function showCollections(subjectKey) {
+
+      currentSubject = subjectKey;
+      currentCollection = null;
+
+      const subject = materialsData[subjectKey];
+
+      materialsNavigation.style.display = "flex";
+      materialsGrid.style.display = "grid";
+      pdfList.style.display = "none";
+      emptyState.style.display = "none";
+
+      materialsBreadcrumb.innerHTML =
+        `<span>${subject.name}</span>`;
+
+      materialsGrid.innerHTML = "";
+
+      Object.keys(subject.collections).forEach(function(key) {
+
+        const collection = subject.collections[key];
+
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "material-card";
+
+        card.innerHTML = `
+          <div class="material-arrow">›</div>
+          <div class="material-icon">${collection.icon}</div>
+          <h3>${collection.name}</h3>
+          <p>Explore ${collection.name.toLowerCase()}</p>
+        `;
+
+        card.addEventListener("click", function() {
+          showFiles(subjectKey, key);
+        });
+
+        materialsGrid.appendChild(card);
+
+      });
+
+    }
+
+
+    /* SHOW PDF FILES */
+
+    function showFiles(subjectKey, collectionKey) {
+
+      currentSubject = subjectKey;
+      currentCollection = collectionKey;
+
+      const subject = materialsData[subjectKey];
+      const collection = subject.collections[collectionKey];
+
+      materialsBreadcrumb.innerHTML =
+        `<span>${subject.name}</span> / <span>${collection.name}</span>`;
+
+      materialsGrid.style.display = "none";
+      pdfList.style.display = "grid";
+      pdfList.innerHTML = "";
+      emptyState.style.display = "none";
+
+      if (collection.files.length === 0) {
+
+        pdfList.style.display = "none";
+        emptyState.style.display = "block";
+        return;
+
+      }
+
+      collection.files.forEach(function(file) {
+
+        const card = document.createElement("div");
+        card.className = "pdf-card";
+
+        const info = document.createElement("div");
+        info.className = "pdf-info";
+
+        const icon = document.createElement("div");
+        icon.className = "pdf-icon";
+        icon.textContent = "📄";
+
+        const details = document.createElement("div");
+
+        const title = document.createElement("h3");
+        title.textContent = file.name;
+
+        const subtitle = document.createElement("p");
+        subtitle.textContent = "PDF Document";
+
+        details.appendChild(title);
+        details.appendChild(subtitle);
+
+        info.appendChild(icon);
+        info.appendChild(details);
+
+        const actions = document.createElement("div");
+        actions.className = "pdf-actions";
+
+        const view = document.createElement("a");
+        view.className = "pdf-btn view-btn";
+        view.href = file.path;
+        view.target = "_blank";
+        view.rel = "noopener";
+        view.textContent = "VIEW PDF ↗";
+
+        const download = document.createElement("a");
+        download.className = "pdf-btn download-btn";
+        download.href = file.path;
+        download.setAttribute("download", "");
+        download.textContent = "DOWNLOAD ↓";
+
+        actions.appendChild(view);
+        actions.appendChild(download);
+
+        card.appendChild(info);
+        card.appendChild(actions);
+
+        pdfList.appendChild(card);
+
+      });
+
+    }
+
+
+    /* BACK BUTTON */
+
+    materialsBack.addEventListener("click", function() {
+
+      if (currentCollection !== null) {
+
+        showCollections(currentSubject);
+
+      } else {
+
+        showSubjects();
+
+      }
+
+    });
+
+
+    /* INITIAL DISPLAY */
+
+    showSubjects();
+
   </script>
 
 </body>
